@@ -1,0 +1,64 @@
+@charset 'utf-8';
+html {
+	box-sizing: border-box;
+}
+
+* {
+	box-sizing: inherit;
+	
+}
+
+body {
+	font-family: -apple-system,  'avenir next', avenir, roboto, noto, ubuntu, 'helvetica neue', helvetica, arial, sans-serif;
+	font-size: 14px;
+	padding: 10px;
+}
+
+h1 {
+	font-size: 20px;
+}
+
+h2 {
+	font-size: 18px;
+	background-color: rgb(97%, 97%, 97%);
+	padding: 8px;
+}
+
+li {
+	margin: 5px;
+
+}
+
+.information {
+	padding: 10px;
+	background-color: rgb(97%, 97%, 97%);
+}
+
+.section {
+	padding: 0.1%;
+	background-color: rgb(97%, 97%, 97%);
+}
+
+.weak {
+	background-color: aqua;
+}
+
+.moderate {
+	background-color: lime;
+}
+
+.uncertainty {
+	border-bottom: 2px solid red;
+}
+
+.negation {
+	background-color: greenyellow;
+}
+
+.subject {
+	background-color: red;
+}
+
+.comment {
+	border-bottom: 2px solid green;
+}
