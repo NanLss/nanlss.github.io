@@ -22,3 +22,5 @@ Email me at: hunanand1991 [at] gmail [dot] com
 [STATA do file: Graphs and t-tests](https://github.com/NanLss/nanlss.github.io/blob/master/Graphs_and_t_tests.do)
 
 [Exercises](https://github.com/NanLss/nanlss.github.io/blob/master/Exercises_Statistics_2019.pdf)
+
+[All the files]{https://github.com/NanLss/nanlss.github.io/blob/master/stata.7z}
