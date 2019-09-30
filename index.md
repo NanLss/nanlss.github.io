@@ -7,7 +7,9 @@ My research interest covers empirical asset pricing, monetary policy, and foreca
 Email me at: hunanand1991 [at] gmail [dot] com
 
 
-**Please find the materials for the pre-semester course below:**  
+**Please find the materials for the pre-semester course below:** 
+
+**[Raw data](https://github.com/NanLss/nanlss.github.io/blob/master/rawdata.zip)**
 
 [Slides: Random variable](https://github.com/NanLss/nanlss.github.io/blob/master/Slides_Statistics_2019.pdf)
 
