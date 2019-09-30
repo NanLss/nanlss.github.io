@@ -24,4 +24,4 @@ Email me at: hunanand1991 [at] gmail [dot] com
 
 [Exercises](https://github.com/NanLss/nanlss.github.io/blob/master/Exercises_Statistics_2019.pdf)
 
-[All the files](https://github.com/NanLss/nanlss.github.io/blob/master/stata.7z)
+**[All the files above in a zip](https://github.com/NanLss/nanlss.github.io/blob/master/stata.7z)**
