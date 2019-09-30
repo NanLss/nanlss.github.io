@@ -9,7 +9,6 @@ Email me at: hunanand1991 [at] gmail [dot] com
 
 **Please find the materials for the pre-semester course below:** 
 
-**[Raw data](https://github.com/NanLss/nanlss.github.io/blob/master/rawdata.zip)**
 
 [Slides: Random variable](https://github.com/NanLss/nanlss.github.io/blob/master/Slides_Statistics_2019.pdf)
 
@@ -21,6 +20,8 @@ Email me at: hunanand1991 [at] gmail [dot] com
 
 [STATA do file: Graphs and t-tests](https://github.com/NanLss/nanlss.github.io/blob/master/Graphs_and_t_tests.do)
 
+[STATA raw data](https://github.com/NanLss/nanlss.github.io/blob/master/rawdata.zip)
+
 [Exercises](https://github.com/NanLss/nanlss.github.io/blob/master/Exercises_Statistics_2019.pdf)
 
-[All the files]{https://github.com/NanLss/nanlss.github.io/blob/master/stata.7z}
+[All the files](https://github.com/NanLss/nanlss.github.io/blob/master/stata.7z)
