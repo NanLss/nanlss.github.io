@@ -14,11 +14,11 @@
 
 clear all   
 set maxvar 3000
-set mem 100m   
+set mem 1000m   
 set more off   
 
 
-gl rawdata "C:\ado\personal\rawdata"
+gl rawdata "C:\ado\personal\rawdata" 
 gl tempdata "C:\ado\personal\tempdata"
 gl dofile "C:\ado\personal\dofile"
 gl logfile "C:\ado\personal\logfile"
@@ -63,13 +63,15 @@ tabulate region
 gen highincome= 1 if gdp> 10000
 replace highincome=0 if gdp<10000
 tabulate region highincome
+tab gdp
 
 * table
 table region
 table region, contents(n wage)
-table region, c(n wage mean wage)
+table region, c(n wage mean wage median gdp)
 
 
+tabstat gdp, statistics(mean median sd variance)
                        
 
 *********************************************
@@ -80,6 +82,7 @@ use $rawdata\finance.dta,clear
 
 *** gen & egen
 gen id=_n
+dis _N
 gen ineq1=ineq*100
 
 egen maxgdp=max(gdp) 
@@ -89,8 +92,8 @@ gen cum_gdp=sum(gdp)
 egen tot_gdp=sum(gdp)  
 list gdp cum_gdp tot_gdp    
 
-gen cum_ineq=sum(ineq)   
-egen tot_ineq=sum(ineq) 
+gen cum_ineq=sum(ineq1)   
+egen tot_ineq=sum(ineq1) 
 list cum_ineq tot_ineq  //Pay attention to the difference
 
 ***gen dummy variables 
@@ -98,9 +101,10 @@ tab region
 gen east=1 if region==1 //
 replace east=0 if east==. //
 
-gen east1=region==1 //
-gen central=region==2
-gen west=region==3  //
+
+gen east1=region==1 if !missing(region)// 
+gen central=region==2 if !missing(region)
+gen west=region==3 if !missing(region) //
 
 * rename
 rename inequality ineq
@@ -111,6 +115,8 @@ des
 
 br region
 label define lregion 1 "east" 2 "central" 3 "west" //
+label list lregion
+
 label values region lregion  //
 br region
 
@@ -120,15 +126,21 @@ count if wage>30000 //
 count if wage>30000 & wage!=.
 replace wage =-99999 if wage==. 
 
+*> larger < smaller  != not equal  == equal
 
 *** order 
 order province ineq ineq1 cum_ineq tot_ineq
-br
+browse
+edit
 
-*** sort 
+*** by, sort 
+br region
 sort region
-by region: egen mn_ineq=mean(ineq) 					   
+by region: egen mn_ineq=mean(ineq) 		
+tab mn_ineq	
+		   
 by region, sort : egen mn_ineq1=mean(ineq)
+bysort region: egen mn_ineq1=mean(ineq)
 					   
 
 *********************************************
@@ -158,15 +170,17 @@ sort id
 save $tempdata\finance3.dta,replace
 
 merge 1:1 id using 	$tempdata\finance2.dta	//
-							
+* master data : using data							
 							
 ***appendÖµ***
 use $rawdata\finance.dta,clear
 keep if region==1
 save $tempdata\east.dta,replace
+
 use $rawdata\finance.dta,clear
 keep if region==2
 save $tempdata\central.dta,replace
+
 use $rawdata\finance.dta,clear
 keep if region==3 
 
@@ -192,7 +206,7 @@ twoway (scatter ineq finance, mlabel(province)) (lfit ineq finance), xscale(rang
 reg ineq1 finance 
 
 ** subsample 
-twoway (scatter ineq finance, mlabel(province)) (lfit ineq finance) if province!="Î÷  ²Ø", xscale(range(0 100)) yscale(range(2 5))
+twoway (scatter ineq finance, mlabel(province)) (lfit ineq finance) if province!="Tibet", xscale(range(0 100)) yscale(range(2 5))
 //graph save $output\yx_sub,replace
 
 reg ineq1 finance if province!="Tibet"
